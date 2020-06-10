@@ -7,14 +7,10 @@
 
 -dontshrink
 
-
+-keep class * { *; }
 -keep @interface * { *; }
 
--keepclasseswithmembers, allowobfuscation class com.xmansoft.libs.butterknife.** { *; }
- 
--keepclasseswithmembers public class com.xmansoft.libs.butterknife.ButterKnife { 
-  public <methods>; 
-}
+-dontobfuscate
 
 -dontwarn com.xmansoft.libs.butterknife.**
 

@@ -33,26 +33,27 @@ import com.xmansoft.libs.butterknife.annotation.OnTextChanged;
 import com.xmansoft.libs.butterknife.annotation.OnTouch;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import android.app.Activity;
 
-final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
+final class bfdl extends bfd {
 
     @Override
-    public ButterKnifeDelegate bindAnimator() {
+    public bfd bindAnimator() {
         Animator anim = (Animator) null;
 
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindAnimator bindAnimator =  (BindAnimator) field.getAnnotation(BindAnimator.class);
 
             if (bindAnimator != null) {
                 try {
 
-                    anim = AnimatorInflaterCompat.loadAnimator(activity, bindAnimator.value());
+                    anim = AnimatorInflaterCompat.loadAnimator(a, bindAnimator.value());
 
                     field.setAccessible(true);
-                    field.set(activity, anim);
+                    field.set(a, anim);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -64,22 +65,22 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindInterpolator() {
+    public bfd bindInterpolator() {
         Interpolator anim = (Interpolator) null;
 
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindInterpolator bindAnimator =  (BindInterpolator) field.getAnnotation(BindInterpolator.class);
 
             if (bindAnimator != null) {
                 try {
 
-                    anim = (Interpolator) AnimationUtilsCompat.loadInterpolator(activity, bindAnimator.value());
+                    anim = (Interpolator) AnimationUtilsCompat.loadInterpolator(a, bindAnimator.value());
 
                     field.setAccessible(true);
-                    field.set(activity, anim);
+                    field.set(a, anim);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -91,22 +92,22 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindString() {
+    public bfd bindString() {
         String string = (String) null;
 
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindString bindString =  (BindString) field.getAnnotation(BindString.class);
 
             if (bindString != null) {
                 try {
 
-                    string = activity.getString(bindString.value());
+                    string = a.getString(bindString.value());
 
                     field.setAccessible(true);
-                    field.set(activity, string);
+                    field.set(a, string);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -118,22 +119,22 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindArray() {
+    public bfd bindArray() {
         String[] str = (String[]) null;
 
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindArray bindString =  (BindArray) field.getAnnotation(BindArray.class);
 
             if (bindString != null) {
                 try {
 
-                    str = activity.getResources().getStringArray(bindString.value());
+                    str = a.getResources().getStringArray(bindString.value());
 
                     field.setAccessible(true);
-                    field.set(activity, str);
+                    field.set(a, str);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -147,22 +148,22 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindColor() {
+    public bfd bindColor() {
         int color = 0;
 
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindColor bindColor =  (BindColor) field.getAnnotation(BindColor.class);
 
             if (bindColor != null) {
                 try {
 
-                    color = ContextCompat.getColor(activity, bindColor.value());
+                    color = ContextCompat.getColor(a, bindColor.value());
 
                     field.setAccessible(true);
-                    field.set(activity, color);
+                    field.set(a, color);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -179,24 +180,24 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
 
 
     @Override
-    public ButterKnifeDelegate bindDrawable() {
+    public bfd bindDrawable() {
 
 
         Drawable drawable = (Drawable) null;
 
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindDrawable bindDrawable = (BindDrawable) field.getAnnotation(BindDrawable.class);
 
             if (bindDrawable != null) {
 
-                drawable = ContextCompat.getDrawable(activity, bindDrawable.value());
+                drawable = ContextCompat.getDrawable(a, bindDrawable.value());
 
                 try {
                     field.setAccessible(true);
-                    field.set(activity, drawable);
+                    field.set(a, drawable);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -209,8 +210,8 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindOnClick() {
-        Method[] methodArr = getDeclaredMethods();
+    public bfd bindOnClick() {
+        Method[] methodArr = b();
         int i = 0;
         while (i < methodArr.length) {
             Method method = methodArr[i];
@@ -218,7 +219,7 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
             if (method.isAnnotationPresent(OnClick.class)) {
 
 
-                activity.findViewById(method.getAnnotation(OnClick.class).value()).setOnClickListener(new ButterKnifeListenerImpl(method, activity));
+                a.findViewById(method.getAnnotation(OnClick.class).value()).setOnClickListener(new bfll(method, a));
 
             }
             i++;
@@ -228,17 +229,17 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindOnTextChanged() {
-        Method[] methodArr = getDeclaredMethods();
+    public bfd bindOnTextChanged() {
+        Method[] methodArr = b();
         int i = 0;
         while (i < methodArr.length) {
             Method method = methodArr[i];
 
             if (method.isAnnotationPresent(OnTextChanged.class)) {
 
-                View view = activity.findViewById(((OnTextChanged) method.getAnnotation(OnTextChanged.class)).value());
+                View view = a.findViewById(((OnTextChanged) method.getAnnotation(OnTextChanged.class)).value());
                 if (view instanceof EditText) {
-                    ((EditText) view).addTextChangedListener(new ButterKnifeListenerImpl(method, activity));
+                    ((EditText) view).addTextChangedListener(new bfll(method, a));
 
                 }
             }
@@ -250,17 +251,17 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindOnCheckedChanged() {
-        Method[] methodArr = getDeclaredMethods();
+    public bfd bindOnCheckedChanged() {
+        Method[] methodArr = b();
         int i = 0;
         while (i < methodArr.length) {
             Method method = methodArr[i];
 
             if (method.isAnnotationPresent(OnCheckedChanged.class)) {
 
-                View view = activity.findViewById(((OnCheckedChanged) method.getAnnotation(OnCheckedChanged.class)).value());
+                View view = a.findViewById(((OnCheckedChanged) method.getAnnotation(OnCheckedChanged.class)).value());
                 if (view instanceof CompoundButton) {
-                    ((CompoundButton) view).setOnCheckedChangeListener(new ButterKnifeListenerImpl(method, activity));
+                    ((CompoundButton) view).setOnCheckedChangeListener(new bfll(method, a));
 
                 }
             }
@@ -271,8 +272,8 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindOnTouch() {
-        Method[] methodArr = getDeclaredMethods();
+    public bfd bindOnTouch() {
+        Method[] methodArr = b();
         int i = 0;
         while (i < methodArr.length) {
             Method method = methodArr[i];
@@ -280,7 +281,7 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
             if (method.isAnnotationPresent(OnTouch.class)) {
 
 
-                activity.findViewById(method.getAnnotation(OnTouch.class).value()).setOnTouchListener(new ButterKnifeListenerImpl(method, activity));
+                a.findViewById(method.getAnnotation(OnTouch.class).value()).setOnTouchListener(new bfll(method, a));
 
             }
             i++;
@@ -289,16 +290,16 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindOnLongClick() {
+    public bfd bindOnLongClick() {
 
-        Method[] methodArr = getDeclaredMethods();
+        Method[] methodArr = b();
         int i = 0;
         while (i < methodArr.length) {
             Method method = methodArr[i];
 
             if (method.isAnnotationPresent(OnLongClick.class)) {
 
-                activity.findViewById((method.getAnnotation(OnLongClick.class)).value()).setOnLongClickListener(new ButterKnifeListenerImpl(method, activity));
+                a.findViewById((method.getAnnotation(OnLongClick.class)).value()).setOnLongClickListener(new bfll(method, a));
 
             }
             i++;
@@ -309,22 +310,22 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindAnimation() {
+    public bfd bindAnimation() {
 
         Animation anim = (Animation) null;
 
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindAnim bindAnim = (BindAnim) field.getAnnotation(BindAnim.class);
 
             if (bindAnim != null) {
-                anim = (Animation) AnimationUtils.loadAnimation(activity, bindAnim.value());
+                anim = (Animation) AnimationUtils.loadAnimation(a, bindAnim.value());
 
                 try {
                     field.setAccessible(true);
-                    field.set(activity, anim);
+                    field.set(a, anim);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -337,17 +338,17 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindOnItemLongClick() {
-        Method[] methodArr = getDeclaredMethods();
+    public bfd bindOnItemLongClick() {
+        Method[] methodArr = b();
         int i = 0;
         while (i < methodArr.length) {
             Method method = methodArr[i];
 
             if (method.isAnnotationPresent(OnItemLongClick.class)) {
 
-                View findViewById = activity.findViewById(((OnItemLongClick)  method.getAnnotation(OnItemLongClick.class)).value());
+                View findViewById = a.findViewById(((OnItemLongClick)  method.getAnnotation(OnItemLongClick.class)).value());
                 if (findViewById instanceof ListView) {
-                    ((ListView) findViewById).setOnItemLongClickListener(new ButterKnifeListenerImpl(method, activity));
+                    ((ListView) findViewById).setOnItemLongClickListener(new bfll(method, a));
                 }
             } 
 
@@ -360,15 +361,15 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindOnItemClick() {
-        Method[] methodArr = getDeclaredMethods();
+    public bfd bindOnItemClick() {
+        Method[] methodArr = b();
         int i = 0;
         while (i < methodArr.length) {
             Method method = methodArr[i];
 
             if (method.isAnnotationPresent(OnItemClick.class)) {
 
-                ((ListView) activity.findViewById((method.getAnnotation(OnItemClick.class)).value())).setOnItemClickListener(new ButterKnifeListenerImpl(method, activity));
+                ((ListView) a.findViewById((method.getAnnotation(OnItemClick.class)).value())).setOnItemClickListener(new bfll(method, a));
 
 
 
@@ -380,17 +381,17 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindOnItemSelected() {
-        Method[] methodArr = getDeclaredMethods();
+    public bfd bindOnItemSelected() {
+        Method[] methodArr = b();
         int i = 0;
         while (i < methodArr.length) {
             Method method = methodArr[i];
 
             if (method.isAnnotationPresent(OnItemSelected.class)) {
 
-                View view = activity.findViewById(((OnItemSelected) method.getAnnotation(OnItemSelected.class)).value());
+                View view = a.findViewById(((OnItemSelected) method.getAnnotation(OnItemSelected.class)).value());
                 if (view instanceof Spinner) {
-                    ((Spinner) view).setOnItemSelectedListener(new ButterKnifeListenerImpl(method, activity));
+                    ((Spinner) view).setOnItemSelectedListener(new bfll(method, a));
 
                 }
             }
@@ -402,13 +403,13 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
     }
 
     @Override
-    public ButterKnifeDelegate bindLayout() {
+    public bfd bindLayout() {
 
         View layout = (View) null;
 
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindLayout bindLayout = (BindLayout) field.getAnnotation(BindLayout.class);
 
@@ -416,11 +417,11 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
                 try {
 
 
-                    LayoutInflater iF = activity.getLayoutInflater(); 
+                    LayoutInflater iF = a.getLayoutInflater(); 
                     layout = iF.inflate(bindLayout.value(), null);
 
                     field.setAccessible(true);
-                    field.set(activity, layout);
+                    field.set(a, layout);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -431,39 +432,39 @@ final class ButterKnifeDelegateImpl extends ButterKnifeDelegate {
         return this;
     }
 
-	private Activity activity;
+	private Activity a;
 
 	@Override
 
-	public Method[] getDeclaredMethods() {
-		return activity.getClass().getDeclaredMethods();
+	public Method[] b() {
+		return a.getClass().getDeclaredMethods();
 	}
 
-    public Field[] getDeclaredFields() {
-        return activity.getClass().getDeclaredFields();
+    public Field[] a() {
+        return a.getClass().getDeclaredFields();
 
     }
 
-    public ButterKnifeDelegateImpl(Activity act) {
-        this.activity = act;
+    public bfdl(Activity act) {
+        this.a = act;
 
     }
 
 
 
-    public ButterKnifeDelegate bindView() {
+    public bfd bindView() {
 
         View view = (View) null;
         int i = 0;
-        while (i < getDeclaredFields().length) {
-            Field field = getDeclaredFields()[i];
+        while (i < a().length) {
+            Field field = a()[i];
 
             BindView bindView = (BindView) field.getAnnotation(BindView.class);
             if (bindView != null) {
-                view = activity.findViewById(bindView.value());
+                view = a.findViewById(bindView.value());
                 try {
                     field.setAccessible(true);
-                    field.set(activity, view);
+                    field.set(a, view);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }

@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import java.lang.reflect.Method;
 
-final class ButterKnifeListenerImpl implements View.OnTouchListener, View.OnClickListener, View.OnLongClickListener,  AdapterView.OnItemClickListener,AdapterView.OnItemSelectedListener,   AdapterView.OnItemLongClickListener, TextWatcher, CompoundButton.OnCheckedChangeListener {
+final class bfll implements View.OnTouchListener, View.OnClickListener, View.OnLongClickListener,  AdapterView.OnItemClickListener,AdapterView.OnItemSelectedListener,   AdapterView.OnItemLongClickListener, TextWatcher, CompoundButton.OnCheckedChangeListener {
 
     @Override
     public boolean onTouch(View p1, MotionEvent p2) {
@@ -126,7 +126,7 @@ final class ButterKnifeListenerImpl implements View.OnTouchListener, View.OnClic
 
     private Method metho;
     private Object objc;
-    ButterKnifeListenerImpl( Method m, Object o){
+    bfll( Method m, Object o){
         this.metho = m;
         this.objc= o;
     }

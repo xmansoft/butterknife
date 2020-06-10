@@ -6,7 +6,7 @@ import android.app.Activity;
 public final  class ButterKnife {
 
 
-	private static ButterKnifeDelegate mDelegate;
+	private static bfd mDelegate;
 
 	private static Activity act;
 
@@ -31,9 +31,9 @@ public ButterKnife(Activity activity){
 */
 
 	
-    public  ButterKnifeDelegate getDelegate() {
+    public  bfd getDelegate() {
         if (this.mDelegate == null) {
-            this.mDelegate = ButterKnifeDelegate.create(act);
+            this.mDelegate = bfd.a(act);
         }
         return this.mDelegate;
     }
