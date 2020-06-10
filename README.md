@@ -7,7 +7,7 @@ Add this in your root `build.gradle` file (**not** your module `build.gradle` fi
 ```gradle
 allprojects {
 	repositories {
-		...
+		
 		maven { url "https://jitpack.io" }
 	}
 }
@@ -19,7 +19,7 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 
 ```gradle
 dependencies {
-	...
+	
     //for android-x
     implementation 'io.github.xmansoft:butterknife:1.1.0'
     //for old support library
