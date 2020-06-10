@@ -28,3 +28,52 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+afterEvaluate {
+        android {
+            compileSdkVersion 29
+            buildToolsVersion "29.0.3"
+
+            defaultConfig {
+                if (minSdkVersion == null)
+                    minSdkVersion 14
+                    targetSdkVersion 29
+            }
+
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+        }
+
+        if (getPlugins().hasPlugin('com.android.library')) {
+            task javadoc(type: Javadoc) {
+                failOnError false
+                title = 'butterknife API'
+                exclude '**/internal/**'
+                source = android.sourceSets.main.java.sourceFiles
+                classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+                classpath += configurations.compile
+                options.links('https://docs.oracle.com/javase/8/docs/api/')
+                options.links('https://developer.android.com/reference/')
+                options.noDeprecated = true
+            }
+
+            task sourcesJar(type: Jar) {
+                classifier = 'sources'
+                from android.sourceSets.main.java.sourceFiles
+            }
+
+            task javadocJar(type: Jar, dependsOn: javadoc) {
+                classifier = 'javadoc'
+                from javadoc.destinationDir
+            }
+
+            artifacts {
+                archives javadocJar
+                archives sourcesJar
+            }
+        }
+    }
+}

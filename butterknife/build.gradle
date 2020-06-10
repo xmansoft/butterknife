@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'  
 
 group='io.github.xmansoft'
-
+version = "1.0.7"
 
 android {
     compileSdkVersion 29
@@ -11,9 +11,9 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 29
-        versionCode 106
-        versionName "1.0.6"
-        consumerProguardFiles 'proguard.txt'
+        versionCode 107
+        versionName "1.0.7"
+        consumerProguardFiles 'proguard-user'
 
     }
     buildTypes {
@@ -22,44 +22,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         
-      sourceSets {
-        main.java.srcDirs += 'src/main/java'
-      
-    }
-}
+   }
 
+}
 
 dependencies {
 	
-	implementation fileTree(dir: 'libs', include: ['*.jar'])
-	implementation 'com.android.support:support-compat:28.0.0'
-    implementation 'com.android.support:support-annotations:28.0.0'
-	implementation 'com.android.support:animated-vector-drawable:28.0.0'
+	api 'com.android.support:support-compat:28.0.0'
+    api 'com.android.support:support-annotations:28.0.0'
+	api 'com.android.support:animated-vector-drawable:28.0.0'
 }
-
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.sourceFiles
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-task classesJar(type: Jar) {
-    from "$buildDir/intermediates/classes/release"
-}
-
-artifacts {
-    archives classesJar
-    archives javadocJar
-    archives sourcesJar
-}
-
