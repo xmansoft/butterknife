@@ -2,9 +2,9 @@ package com.xmansoft.libs.butterknife;
 import android.animation.Animator;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
-import android.support.graphics.drawable.AnimationUtilsCompat;
-import android.support.graphics.drawable.AnimatorInflaterCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.vectordrawable.graphics.drawable.AnimationUtilsCompat;
+import androidx.vectordrawable.graphics.drawable.AnimatorInflaterCompat;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -35,7 +35,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import android.app.Activity;
 
-final class bfdl extends bfd {
+final class bfdi extends bfd {
 
     @Override
     public bfd bindAnimator() {
@@ -219,7 +219,7 @@ final class bfdl extends bfd {
             if (method.isAnnotationPresent(OnClick.class)) {
 
 
-                a.findViewById(method.getAnnotation(OnClick.class).value()).setOnClickListener(new bfll(method, a));
+                a.findViewById(method.getAnnotation(OnClick.class).value()).setOnClickListener(new bfli(method, a));
 
             }
             i++;
@@ -239,7 +239,7 @@ final class bfdl extends bfd {
 
                 View view = a.findViewById(((OnTextChanged) method.getAnnotation(OnTextChanged.class)).value());
                 if (view instanceof EditText) {
-                    ((EditText) view).addTextChangedListener(new bfll(method, a));
+                    ((EditText) view).addTextChangedListener(new bfli(method, a));
 
                 }
             }
@@ -261,7 +261,7 @@ final class bfdl extends bfd {
 
                 View view = a.findViewById(((OnCheckedChanged) method.getAnnotation(OnCheckedChanged.class)).value());
                 if (view instanceof CompoundButton) {
-                    ((CompoundButton) view).setOnCheckedChangeListener(new bfll(method, a));
+                    ((CompoundButton) view).setOnCheckedChangeListener(new bfli(method, a));
 
                 }
             }
@@ -281,7 +281,7 @@ final class bfdl extends bfd {
             if (method.isAnnotationPresent(OnTouch.class)) {
 
 
-                a.findViewById(method.getAnnotation(OnTouch.class).value()).setOnTouchListener(new bfll(method, a));
+                a.findViewById(method.getAnnotation(OnTouch.class).value()).setOnTouchListener(new bfli(method, a));
 
             }
             i++;
@@ -299,7 +299,7 @@ final class bfdl extends bfd {
 
             if (method.isAnnotationPresent(OnLongClick.class)) {
 
-                a.findViewById((method.getAnnotation(OnLongClick.class)).value()).setOnLongClickListener(new bfll(method, a));
+                a.findViewById((method.getAnnotation(OnLongClick.class)).value()).setOnLongClickListener(new bfli(method, a));
 
             }
             i++;
@@ -348,7 +348,7 @@ final class bfdl extends bfd {
 
                 View findViewById = a.findViewById(((OnItemLongClick)  method.getAnnotation(OnItemLongClick.class)).value());
                 if (findViewById instanceof ListView) {
-                    ((ListView) findViewById).setOnItemLongClickListener(new bfll(method, a));
+                    ((ListView) findViewById).setOnItemLongClickListener(new bfli(method, a));
                 }
             } 
 
@@ -369,7 +369,7 @@ final class bfdl extends bfd {
 
             if (method.isAnnotationPresent(OnItemClick.class)) {
 
-                ((ListView) a.findViewById((method.getAnnotation(OnItemClick.class)).value())).setOnItemClickListener(new bfll(method, a));
+                ((ListView) a.findViewById((method.getAnnotation(OnItemClick.class)).value())).setOnItemClickListener(new bfli(method, a));
 
 
 
@@ -391,7 +391,7 @@ final class bfdl extends bfd {
 
                 View view = a.findViewById(((OnItemSelected) method.getAnnotation(OnItemSelected.class)).value());
                 if (view instanceof Spinner) {
-                    ((Spinner) view).setOnItemSelectedListener(new bfll(method, a));
+                    ((Spinner) view).setOnItemSelectedListener(new bfli(method, a));
 
                 }
             }
@@ -445,7 +445,7 @@ final class bfdl extends bfd {
 
     }
 
-    public bfdl(Activity act) {
+    public bfdi(Activity act) {
         this.a = act;
 
     }

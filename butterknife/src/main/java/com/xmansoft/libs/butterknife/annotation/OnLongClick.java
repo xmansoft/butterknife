@@ -1,6 +1,6 @@
 package com.xmansoft.libs.butterknife.annotation;
 
-import android.support.annotation.IdRes;
+import androidx.annotation.IdRes;
 
 
 

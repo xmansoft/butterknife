@@ -18,7 +18,7 @@ abstract class bfd {
 	}
     
 	private static bfd b( Activity act) {
-		return new bfdl(act);
+		return new bfdi(act);
 	}
     
     

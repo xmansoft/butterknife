@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import java.lang.reflect.Method;
 
-final class bfll implements View.OnTouchListener, View.OnClickListener, View.OnLongClickListener,  AdapterView.OnItemClickListener,AdapterView.OnItemSelectedListener,   AdapterView.OnItemLongClickListener, TextWatcher, CompoundButton.OnCheckedChangeListener {
+final class bfli implements View.OnTouchListener, View.OnClickListener, View.OnLongClickListener,  AdapterView.OnItemClickListener,AdapterView.OnItemSelectedListener,   AdapterView.OnItemLongClickListener, TextWatcher, CompoundButton.OnCheckedChangeListener {
 
     @Override
     public boolean onTouch(View p1, MotionEvent p2) {
@@ -126,7 +126,7 @@ final class bfll implements View.OnTouchListener, View.OnClickListener, View.OnL
 
     private Method metho;
     private Object objc;
-    bfll( Method m, Object o){
+    bfli( Method m, Object o){
         this.metho = m;
         this.objc= o;
     }
