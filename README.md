@@ -21,7 +21,7 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 dependencies {
 	...
     //for android-x
-	implementation 'io.github.xmansoft:butterknife:1.1.0'
+    implementation 'io.github.xmansoft:butterknife:1.1.0'
     //for old support library
     implementation 'io.github.xmansoft:butterknife:1.0.8'
 }
