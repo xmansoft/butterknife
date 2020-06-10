@@ -1,6 +1,4 @@
-
 [![](https://jitpack.io/v/io.github.xmansoft/butterknife.svg)](https://jitpack.io/#io.github.xmansoft/butterknife)
-
 
 ## Prerequisites
 
@@ -22,14 +20,10 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 ```gradle
 dependencies {
 	...
-   
-           //for android-x
-	       implementation 'io.github.xmansoft:butterknife:1.1.0'
-	
-           //for old support library
-           implementation 'io.github.xmansoft:butterknife:1.0.8'
-	
-	
+    //for android-x
+	implementation 'io.github.xmansoft:butterknife:1.1.0'
+    //for old support library
+    implementation 'io.github.xmansoft:butterknife:1.0.8'
 }
 ```
 
@@ -73,7 +67,6 @@ You can use this code with all views (Linear, Button, Toolbar, Fab, Textview and
 Drawable image;
 ```
 To bind drawables or mipmaps.
-
 
 ``` java
 @BindLayout(R.layout.dialog)
