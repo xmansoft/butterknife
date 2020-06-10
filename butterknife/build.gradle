@@ -11,8 +11,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 29
-        versionCode 103
-        versionName "1.0.3"
+        versionCode 104
+        versionName "1.0.4"
         consumerProguardFiles 'proguard.txt'
 
     }
@@ -21,8 +21,13 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        
+      sourceSets {
+        main.java.srcDirs += 'src/main/java'
+      
     }
 }
+
 
 dependencies {
 	
