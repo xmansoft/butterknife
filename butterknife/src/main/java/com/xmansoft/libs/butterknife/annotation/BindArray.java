@@ -1,9 +1,12 @@
 package com.xmansoft.libs.butterknife.annotation;
-import androidx.annotation.ArrayRes;
-@java.lang.annotation.Retention(value=java.lang.annotation.RetentionPolicy.RUNTIME)
-@java.lang.annotation.Target(value=java.lang.annotation.ElementType.FIELD)
 
-public @interface BindArray
-{
- @ArrayRes  int value();
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(value=RetentionPolicy.RUNTIME)
+@Target(value=ElementType.FIELD)
+public @interface BindArray {
+    int value();
 }

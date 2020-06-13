@@ -1,9 +1,12 @@
 package com.xmansoft.libs.butterknife.annotation;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-@java.lang.annotation.Retention(value=java.lang.annotation.RetentionPolicy.RUNTIME)
-@java.lang.annotation.Target(value=java.lang.annotation.ElementType.FIELD)
-
+@Retention(value=RetentionPolicy.RUNTIME)
+@Target(value=ElementType.FIELD)
 public @interface BindLayout {
-    int value();
+    int value()
 }

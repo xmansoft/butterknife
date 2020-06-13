@@ -19,11 +19,9 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 
 ```gradle
 dependencies {
-	
-    //for android-x
-    implementation 'io.github.xmansoft:butterknife:1.1.0'
-    //for old support library
-    implementation 'io.github.xmansoft:butterknife:1.0.8'
+    
+      implementation 'io.github.xmansoft:butterknife:2.0.0'
+
 }
 ```
 
@@ -32,25 +30,7 @@ dependencies {
 
    protected void onCreate (Bundle b) {
                super.onCreate(b);
-               new ButterKnife(this) //required
-               .getDelegate() //required
-               .bindAnimation() //Set it if you use @BindAnimation
-               .bindAnimator() //Set it if you use @BindAnimator
-               .bindArray() //Set it if you use @BindArray
-               .bindColor() //Set it if you use @BindColor
-               .bindDrawable() //Set it if you use @BindDrawable
-               .bindInterpolator() //Set it if you use @BindInterpolator
-               .bindLayout()  //Set it if you use @BindLayout
-               .bindOnCheckedChanged()  //Set it if you use @OnCheckedChanged
-               .bindOnClick()  //Set it if you use @OnClick
-               .bindOnItemClick()  //Set it if you use @OnItemClick
-               .bindOnItemLongClick()  //Set it if you use @OnItemLongClick
-               .bindOnTextChanged()  //Set it if you use @OnTextChanged
-               .bindOnTouch()  //Set it if you use @OnTouch
-               .bindString()  //Set it if you use @BindString
-               .bindView();  //Set it if you use @BindView
-               
-               //You can use one, some or all
+               ButterKnife.bind(this) //required
 }
 
 ```
@@ -86,10 +66,10 @@ To bind animations.
 String str;
 ```
 ``` java
-@BindArray(R.string.array)
-String[] array;
+@BindArray(R.array.mArray)
+String[] mArray;
 ```
-To bind strings.
+To bind array string.
 
 ``` java
 @BindColor(R.color.red)
@@ -108,7 +88,7 @@ CompoundButton comp;
 To bind compoundbuttons like checkbox and switch ... etc
 ``` java
 @OnClick(R.id.button)
-public void method ()
+public void method()
 {
 // You must use public to make it work.
 
@@ -116,7 +96,7 @@ public void method ()
 ```
 ``` java
 @OnTouch(R.id.button)
-public void method ()
+public void method()
 {
 // You must use public to make it work.
 
@@ -124,7 +104,7 @@ public void method ()
 ```
 ``` java
 @OnLongClick(R.id.button)
-public void method ()
+public void method()
 {
 // You must use public to make it work.
  
@@ -139,7 +119,7 @@ public void method ()
     }
 ```
 ```java
-@OnCheckedChanged(R.id.comp)
+@OnCheckedChanged(R.id.checkbox / radiobutton / swith / toggelbutton ... etc extends CompoundButton)
  public void method(boolean b){
  // You must use public to make it work.
 // You must use boolean to make it work.
@@ -148,7 +128,7 @@ public void method ()
 ```
 ``` java
 @OnItemClick(R.id.list)
-public void method (int i)
+public void method(int i)
 {
 // You must use public to make it work.
 // You must use int to make it work.
@@ -156,7 +136,7 @@ public void method (int i)
 ```
 ``` java
 @OnItemLongClick(R.id.list)
-public void method (int i)
+public void method(int i)
 {
 // You must use public to make it work.
 // You must use int to make it work.
@@ -164,27 +144,59 @@ public void method (int i)
 ```
 ``` java
 @OnItemSelected(R.id.spinner)
-public void method (int i)
+public void method(int i)
 {
 // You must use public to make it work.
 // You must use int to make it work.
 }
 ```
+``` java
+@OnRatingBarChange(R.id.ratingbar)
+public void method(float f)
+{
+// You must use public to make it work.
+// You must use float to make it work.
+
+}
+```
+``` java
+@OnTimeChanged(R.id.timepicker)
+public void method(int i, int i2)
+{
+// You must use public to make it work.
+// You must use int to make it work.
+// i = hour, i2 = minute.
+}
+```
+``` java
+@OnDateChanged(R.id.datepicker / calenderview)
+public void method(int i, int i2, int i3)
+{
+// You must use public to make it work.
+// You must use int to make it work.
+// i = year, i2 = month, i3 = day.
+}
+```
 ## Progaurd 
 ```txt
 
--dontwarn com.mzstudio.libs.butterknife.**
+-dontwarn com.xmansoft.libs.butterknife.**
 
--keepclasseswithmembers, allowobfuscation class * {
-     @com.mzstudio.libs.butterknife.annotation.** <fields>;
+-keep public class com.xmansoft.libs.butterknife.ButterKnife {
+     public static <methods>;  
 }
 
--keepclasseswithmembers, allowobfuscation class * {
-    @com.mzstudio.libs.butterknife.annotation.** <methods>;
+-keepclasseswithmembers @interface com.xmansoft.libs.butterknife.annotation.** { 
+     int value();
 }
 
--keepclasseswithmembers, allowobfuscation class * {
-     @com.mzstudio.libs.butterknife.annotation.** <init>(...);
+-keepclassmembers, allowobfuscation class * {
+     @com.xmansoft.libs.butterknife.annotation.** <fields>;
 }
+
+-keepclassmembers, allowobfuscation class * {
+    @com.xmansoft.libs.butterknife.annotation.** <methods>;
+}
+
 
 ```

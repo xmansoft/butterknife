@@ -4,7 +4,6 @@
     package="com.xamnsoft.apps.example_butterknife">
 
     <application
-        android:name=".AIDEApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -22,10 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-			android:name=".DebugActivity"
-			android:screenOrientation="portrait"/>
-
+        
       <meta-data
           android:name="android.max_aspect"
           android:value="4.0"/>

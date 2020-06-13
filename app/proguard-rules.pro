@@ -1,28 +1,42 @@
 -keepattributes SourceFile
--renamesourcefileattribute Xmansoft
+-renamesourcefileattribute XMANSOFT
 
 -ignorewarnings
 -dontwarn
 -dontnote
 
+-printconfiguration config.pro
+-dump dump.pro
+
+-optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*
+-optimizationpasses 5
+-allowaccessmodification
+
+-obfuscationdictionary dictionary.txt
+-classobfuscationdictionary dictionary.txt
+
+
 -dontshrink
-
--keep class * { *; }
--keep @interface * { *; }
-
--dontobfuscate
 
 -dontwarn com.xmansoft.libs.butterknife.**
 
+-keep public class com.xmansoft.libs.butterknife.** {
+     public static <methods>;  
+}
 
--keepclasseswithmembers, allowobfuscation class * {
+-keep public final class com.xmansoft.libs.butterknife.** {
+     public static final <fields>;  
+}
+
+-keepclasseswithmembers @interface com.xmansoft.libs.butterknife.annotation.** { 
+     int value();
+}
+
+-keepclassmembers, allowobfuscation class * {
      @com.xmansoft.libs.butterknife.annotation.** <fields>;
 }
--keepclasseswithmembers, allowobfuscation class * {
+
+-keepclassmembers, allowobfuscation class * {
     @com.xmansoft.libs.butterknife.annotation.** <methods>;
 }
--keepclasseswithmembers, allowobfuscation class * {
-     @com.xmansoft.libs.butterknife.annotation.** <init>(...);
-}
-
 

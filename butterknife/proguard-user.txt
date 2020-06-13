@@ -1,13 +1,14 @@
 -dontwarn com.xmansoft.libs.butterknife.**
 
--keepclasseswithmembers, allowobfuscation class * {
-     @com.xmansoft.libs.butterknife.annotation.** <fields>;
-}
--keepclasseswithmembers, allowobfuscation class * {
-    @com.xmansoft.libs.butterknife.annotation.** <methods>;
-}
--keepclasseswithmembers, allowobfuscation class * {
-     @com.xmansoft.libs.butterknife.annotation.** <init>(...);
+-keepclasseswithmembers @interface com.xmansoft.libs.butterknife.annotation.** { 
+     int value();
 }
 
+-keepclassmembers, allowobfuscation class * {
+     @com.xmansoft.libs.butterknife.annotation.** <fields>;
+}
+
+-keepclassmembers, allowobfuscation class * {
+    @com.xmansoft.libs.butterknife.annotation.** <methods>;
+}
 
