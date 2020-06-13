@@ -20,7 +20,7 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 ```gradle
 dependencies {
     
-      implementation 'io.github.xmansoft:butterknife:2.0.0'
+      implementation 'io.github.xmansoft:butterknife:2.1.0'
 
 }
 ```
@@ -181,10 +181,6 @@ public void method(int i, int i2, int i3)
 ```txt
 
 -dontwarn com.xmansoft.libs.butterknife.**
-
--keep public class com.xmansoft.libs.butterknife.ButterKnife {
-     public static <methods>;  
-}
 
 -keepclasseswithmembers @interface com.xmansoft.libs.butterknife.annotation.** { 
      int value();
