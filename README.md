@@ -20,7 +20,7 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 ```gradle
 dependencies {
     
-      implementation 'io.github.xmansoft:butterknife:2.1.1'
+      implementation 'io.github.xmansoft:butterknife:2.2.0'
 
 }
 ```

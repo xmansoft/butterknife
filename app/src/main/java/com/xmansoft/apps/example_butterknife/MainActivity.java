@@ -22,6 +22,7 @@ import com.xmansoft.libs.butterknife.annotation.OnRatingBarChange;
 import android.widget.RatingBar;
 import android.widget.CompoundButton;
 import com.xmansoft.libs.butterknife.annotation.OnSeekBarChange;
+import android.content.Intent;
 
 public class MainActivity extends BaseActivity {
 
@@ -227,9 +228,9 @@ private View v;
  protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         ButterKnife.bind(this);
+        ButterKnife.bind(this);
           
-     
+      startActivity(new Intent(getPackageName() + ".TEMP").putExtra("text", "Mohamed"));
      
 /*
      LayoutInflater i = getLayoutInflater(); 
@@ -322,10 +323,13 @@ private View v;
 
       if (str != null){
        for (int i = 0; i < str.length; i++){
+           
+       
        Toast t = new Toast(this);
        ((TextView) v.findViewById(R.id.toastTextView1)).setText(str[i]);
        t.setDuration(1);
-       t.setView(v); t.show();         
+       t.setView(v); t.show();       
+       
     }
     }
     }

@@ -105,16 +105,9 @@
     <init>(...);
 }
 
--keep public class com.xmansoft.libs.butterknife.** {
-    public static <methods>;
-}
-
--keep public final class com.xmansoft.libs.butterknife.** {
-    public static final <fields>;
-}
-
--keepclasseswithmembers @interface  com.xmansoft.libs.butterknife.annotation.** {
-    int value();
+# view AndroidManifest.xml #generated:28
+-keep class com.xmansoft.apps.example_butterknife.Temp {
+    <init>(...);
 }
 
 -keepclassmembers,allowobfuscation class * {
