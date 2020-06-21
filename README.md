@@ -30,6 +30,7 @@ dependencies {
 
    protected void onCreate (Bundle b) {
                super.onCreate(b);
+               setContentView(R.layout.main);
                ButterKnife.bind(this) //required
 }
 
