@@ -20,7 +20,7 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 ```gradle
 dependencies {
     
-      implementation 'io.github.xmansoft:butterknife:2.2.0'
+      implementation 'io.github.xmansoft:butterknife:2.4.0'
 
 }
 ```
@@ -31,7 +31,10 @@ dependencies {
    protected void onCreate (Bundle b) {
                super.onCreate(b);
                setContentView(R.layout.main);
-               ButterKnife.bind(this) //required
+               ButterKnife.bind(this) //required, this instanceof Activiyy
+               ButterKnife.bind(this, dialog); //Dialog, this instanceof any class
+               ButterKnife.bind(this, view); //View, this instanceof any class
+               
 }
 
 ```
