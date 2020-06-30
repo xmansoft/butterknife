@@ -1,4 +1,5 @@
-[![](https://jitpack.io/v/io.github.xmansoft/butterknife.svg)](https://jitpack.io/#io.github.xmansoft/butterknife) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![](https://jitpack.io/v/io.github.xmansoft/butterknife.svg)](https://jitpack.io/#io.github.xmansoft/butterknife) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![version](https://img.shields.io/badge/version-2.4.0-blue)
+
 
 
 ## Prerequisites
